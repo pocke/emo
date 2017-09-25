@@ -1138,8 +1138,28 @@ var emojis = []string{
 	"\U0001F9C0",
 }
 
+var help = `Usage: emo [all|rand]
+
+Display all emoji
+$ emo all
+
+Display an emoji randamly
+$ emo rand
+
+Display two emoji randamly
+$ emo rand 2
+
+Display many emoji randamly
+$ emo rand 1000
+`
+
 func main() {
-	cmd := os.Args[1]
+	var cmd string
+	if len(os.Args) < 2 {
+		cmd = "help"
+	} else {
+		cmd = os.Args[1]
+	}
 	switch cmd {
 	case "rand":
 		var n int
@@ -1160,5 +1180,11 @@ func main() {
 		fmt.Print(emo)
 	case "all":
 		fmt.Println(strings.Join(emojis, "\n"))
+	case "help":
+		fmt.Println(help)
+	default:
+		fmt.Printf("%s is unknown subcommand", cmd)
+		fmt.Println(help)
+		os.Exit(1)
 	}
 }
