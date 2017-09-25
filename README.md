@@ -36,7 +36,7 @@ $ emo rand 1000
 
 ![out](https://user-images.githubusercontent.com/4361134/30814286-ae88f304-a24a-11e7-8b25-2f235e672fe8.gif)
 
-License
+4🦇🔰 License 💧🏃😇
 -------
 
 These codes are licensed under CC0.
