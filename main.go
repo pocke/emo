@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math/rand"
 	"os"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -1141,8 +1142,22 @@ func main() {
 	cmd := os.Args[1]
 	switch cmd {
 	case "rand":
+		var n int
+		if len(os.Args) >= 3 {
+			var err error
+			n, err = strconv.Atoi(os.Args[2])
+			if err != nil {
+				panic(err)
+			}
+		} else {
+			n = 1
+		}
 		rand.Seed(time.Now().Unix())
-		fmt.Print(emojis[rand.Intn(len(emojis))])
+		emo := ""
+		for i := 0; i < n; i++ {
+			emo += emojis[rand.Intn(len(emojis))]
+		}
+		fmt.Print(emo)
 	case "all":
 		fmt.Println(strings.Join(emojis, "\n"))
 	}
