@@ -1172,7 +1172,7 @@ func main() {
 		} else {
 			n = 1
 		}
-		rand.Seed(time.Now().Unix())
+		rand.Seed(time.Now().UnixNano())
 		emo := ""
 		for i := 0; i < n; i++ {
 			emo += emojis[rand.Intn(len(emojis))]
